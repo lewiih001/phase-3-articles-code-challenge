@@ -8,6 +8,8 @@ class Magazine
     @category = category
     @@all << self
   end
-
+  def articles
+    Article.all.filter {|article| article.magazine == self}
+  end
 
 end

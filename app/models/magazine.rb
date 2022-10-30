@@ -11,5 +11,7 @@ class Magazine
   def articles
     Article.all.filter {|article| article.magazine == self}
   end
-
+  def contributors
+    self.articles.map {|article| article.author}.uniq
+  end
 end

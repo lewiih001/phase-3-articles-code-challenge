@@ -8,10 +8,19 @@ class Magazine
     @category = category
     @@all << self
   end
+
   def articles
     Article.all.filter {|article| article.magazine == self}
   end
+
   def contributors
     self.articles.map {|article| article.author}.uniq
   end
+  def contributing_authors
+    self.contributors.filter {|author|author.articles.count > 2}
+  end 
+  def self.all
+    @@all
+  end
+
 end

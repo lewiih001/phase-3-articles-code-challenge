@@ -1,3 +1,5 @@
+require_relative './article'
+
 class Author
   attr_accessor :name
   @@all = []
@@ -14,11 +16,10 @@ class Author
   def magazines
     self.articles.map {|article| article.magazine}.uniq
   end
-
+  
   def add_article(magazine, title)
     Article.new(self, magazine, title)
   end
-
   def topic_areas
     self.magazines.map {|magazine|magazine.category}.uniq
 end

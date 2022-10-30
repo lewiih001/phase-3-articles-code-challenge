@@ -19,6 +19,10 @@ class Magazine
   def contributing_authors
     self.contributors.filter {|author|author.articles.count > 2}
   end 
+  def self.find_by_name(name)
+    self.all.find {|magazine| magazine.name == name}
+  end
+  
   def self.all
     @@all
   end

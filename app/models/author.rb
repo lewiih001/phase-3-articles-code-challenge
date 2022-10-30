@@ -7,6 +7,8 @@ class Author
     @@all <<self
   
   end
-
+  def articles
+    Article.all.filter {|article| article.author == self}
+  end
 
 end

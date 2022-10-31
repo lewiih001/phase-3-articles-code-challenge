@@ -1,4 +1,5 @@
 require_relative './article'
+
 class Magazine
   attr_accessor :name, :category
 
@@ -22,7 +23,7 @@ class Magazine
   def self.find_by_name(name)
     self.all.find {|magazine| magazine.name == name}
   end
-  
+
   def self.all
     @@all
   end
